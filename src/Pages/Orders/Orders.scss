@@ -1,0 +1,142 @@
+.filter_wrap {
+  padding-top: 100px;
+  margin-bottom: 30px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #cccccc;
+  td,
+  th {
+    padding: 15px;
+  }
+}
+thead {
+  background: var(--1, #215056);
+  color: #fff;
+  tr {
+    padding: 50px;
+  }
+}
+tbody {
+  text-align: center;
+  tr {
+    border: 1px solid #cccccc;
+  }
+}
+.table_tr {
+  td {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.5);
+}
+td {
+  i {
+    font-size: 26px;
+    &.fa-xmark {
+      color: #000;
+    }
+    &.fa-check {
+      color: #05c46b;
+    }
+  }
+}
+.btns .edit {
+  border-radius: 5px;
+  background-color: #01374d27;
+  padding: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.btns .delete {
+  border-radius: 5px;
+  background-color: #d61f1f26;
+  padding: 7px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btns .delete img {
+  transform: translateY(3px);
+}
+
+.btns .ellipsis {
+  border-radius: 5px;
+  border: none;
+  padding: 7px;
+  margin-left: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  background-color: #8d8d8d26;
+}
+
+.btns .ellipsis i {
+  font-size: 24px;
+}
+.add button {
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 135px;
+  height: 40px;
+  border-radius: 8px;
+  background: #215056;
+  border: none;
+  cursor: pointer;
+}
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+}
+
+.input {
+  width: 600px;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+
+  &::placeholder {
+    color: #9e9ea7;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    border-color: rgba(33, 80, 86, 0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+  }
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
+}

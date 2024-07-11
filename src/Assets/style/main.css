@@ -1,0 +1,361 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Josefin+Sans:wght@400;700&display=swap");
+/* Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  font-family: "Josefin Sans", sans-serif;
+  color: #000;
+  @media only screen and (max-width: 600px) {
+    overflow-x: hidden;
+  }
+}
+.container {
+  width: 1250px;
+  padding: 0 15px;
+  margin: 0 auto;
+  &--home {
+    max-width: 1310px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+/* heading */
+.secondary-heading {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #000;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+/* btn */
+.btn {
+  color: #000;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 16px 30px 14px 31px;
+  transition: 0.4s;
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+.container--product {
+  width: 1310px;
+  margin: 0 auto;
+  @media only screen and (max-width: 600px) {
+    width: 360px;
+  }
+}
+.container--home {
+  @media only screen and (max-width: 600px) {
+    width: 350px;
+  }
+}
+.app {
+  display: flex;
+  gap: 240px;
+}
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-switch-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 2px #ccc;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.toggle-switch-handle {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  right: -35px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+  text-shadow: 1px 1px #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+.toggle-switch input[type="checkbox"]:checked + .toggle-switch-handle {
+  transform: translateX(2500px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 3px #05c46b;
+}
+
+.toggle-switch input[type="checkbox"]:checked + .toggle-switch-background {
+  background-color: #05c46b;
+  box-shadow: inset 0 0 0 2px #04b360;
+}
+
+.toggle-switch input[type="checkbox"]:checked + .toggle-switch:before {
+  content: "On";
+  color: #05c46b;
+  right: -15px;
+}
+
+.toggle-switch
+  input[type="checkbox"]:checked
+  + .toggle-switch-background
+  .toggle-switch-handle {
+  transform: translateX(15px);
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 200px;
+  margin-bottom: 300px;
+}
+.loader__wrap {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+}
+
+.loader__wrap div {
+  width: 20%;
+  height: 54%;
+  background: #000;
+  position: absolute;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  animation: fade458 1s linear infinite;
+  margin-left: 630px;
+  margin-top: 50px;
+}
+
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+.loader__wrap .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+
+.loader__wrap .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+
+.loader__wrap .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+
+.loader__wrap .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+
+.loader__wrap .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+
+.loader__wrap .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+
+.loader__wrap .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+
+.loader__wrap .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+
+.loader__wrap .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+
+.loader__wrap .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+
+.loader__wrap .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+
+.loader__wrap .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
+}
+.table_wrap {
+  padding-top: 100px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #cccccc;
+  td,
+  th {
+    padding: 15px;
+  }
+}
+thead {
+  background: var(--1, #215056);
+  color: #fff;
+  tr {
+    padding: 50px;
+  }
+}
+tbody {
+  text-align: center;
+  tr {
+    border: 1px solid #cccccc;
+  }
+}
+.table_tr {
+  td {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.5);
+}
+td {
+  i {
+    font-size: 26px;
+    &.fa-xmark {
+      color: #000;
+    }
+    &.fa-check {
+      color: #05c46b;
+    }
+  }
+}
+.btns .edit {
+  border-radius: 5px;
+  background-color: #01374d27;
+  padding: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.btns .delete {
+  border-radius: 5px;
+  background-color: #d61f1f26;
+  padding: 7px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.btns .delete img {
+  transform: translateY(3px);
+}
+
+.btns .ellipsis {
+  border-radius: 5px;
+  border: none;
+  padding: 7px;
+  margin-left: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  background-color: #8d8d8d26;
+}
+
+.btns .ellipsis i {
+  font-size: 24px;
+}
+.add button {
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 135px;
+  height: 40px;
+  border-radius: 8px;
+  background: #215056;
+  border: none;
+  cursor: pointer;
+}
