@@ -10,7 +10,6 @@ import Pagination from "../../Components/Pagination/Pagination";
 function Orders() {
   const [page, setPage] = useState(1);
   const [token, setToken] = useToken();
-  const [offset, setOffset] = useState(0);
   const [deleteModal, setDeleteModal] = useState(false);
   const [infoModal, setInfoModal] = useState(false);
   const [selectedId, setSelectedId] = useState("");
@@ -24,7 +23,7 @@ function Orders() {
 
   useEffect(() => {
     http
-      .get(`orders/list?limit=15&page=1&phone=${filterPhone}`, {
+      .get(`orders/list?limit=15&page=${page}&phone=${filterPhone}`, {
         headers: {
           token: token,
           "Content-Type": "application/json",
@@ -49,7 +48,7 @@ function Orders() {
           err: error,
         })
       );
-  }, [offset, token, setToken, filterPhone]);
+  }, [page, token, setToken, filterPhone]);
 
   const handleFilterChange = (e) => {
     setFilterPhone(e.target.value);

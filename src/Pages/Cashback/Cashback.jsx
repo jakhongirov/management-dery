@@ -9,7 +9,6 @@ import Pagination from "../../Components/Pagination/Pagination";
 function Cashback() {
   const [page, setPage] = useState(1);
   const [token, setToken] = useToken();
-  const [offset, setOffset] = useState(0);
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
 
@@ -21,7 +20,7 @@ function Cashback() {
 
   useEffect(() => {
     http
-      .get(`cashbek/list?limit=15&page=1`, {
+      .get(`cashbek/list?limit=15&page=${page}`, {
         headers: {
           token: token,
           "Content-Type": "application/json",
@@ -45,7 +44,7 @@ function Cashback() {
           err: error,
         })
       );
-  }, [offset]);
+  }, [page]);
 
   console.log(studentsList);
 

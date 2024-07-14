@@ -35,7 +35,7 @@ function Users() {
 
   useEffect(() => {
     http
-      .get(`users/list?limit=15&page=1&phone=${filterPhone}`, {
+      .get(`users/list?limit=15&page=${page}&phone=${filterPhone}`, {
         headers: {
           token: token,
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ function Users() {
           err: error,
         })
       );
-  }, [offset, filterPhone]);
+  }, [page, filterPhone]);
 
   const handleFilterChange = (e) => {
     setFilterPhone(e.target.value);

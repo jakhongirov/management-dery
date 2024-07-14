@@ -10,7 +10,6 @@ import Pagination from "../../Components/Pagination/Pagination";
 function Reviews() {
   const [page, setPage] = useState(1);
   const [token, setToken] = useToken();
-  const [offset, setOffset] = useState(0);
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
   const [infoModal, setInfoModal] = useState(false);
@@ -28,7 +27,7 @@ function Reviews() {
 
   useEffect(() => {
     http
-      .get(`reviews/list?limit=15&page=1`, {
+      .get(`reviews/list?limit=15&page=${page}`, {
         headers: {
           token: token,
           "Content-Type": "application/json",
@@ -52,7 +51,7 @@ function Reviews() {
           err: error,
         })
       );
-  }, [offset]);
+  }, [page]);
 
   function truncateTextAfterWords(text) {
     const words = text.split(" ");

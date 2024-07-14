@@ -8,7 +8,6 @@ import Pagination from "../../Components/Pagination/Pagination";
 function History() {
   const [page, setPage] = useState(1);
   const [token, setToken] = useToken();
-  const [offset, setOffset] = useState(0);
   const { id } = useParams();
 
   const [studentsList, setStudentsList] = useState({
@@ -19,7 +18,7 @@ function History() {
 
   useEffect(() => {
     http
-      .get(`cashbek/history?user_id=${id}&limit=15&page=1`, {
+      .get(`cashbek/history?user_id=${id}&limit=15&page=${page}`, {
         headers: {
           token: token,
           "Content-Type": "application/json",
@@ -43,7 +42,7 @@ function History() {
           err: error,
         })
       );
-  }, [offset, id, token, setToken]);
+  }, [page, id, token, setToken]);
 
   //   function truncateTextAfterWords(text) {
   //     const words = text.split(" ");
