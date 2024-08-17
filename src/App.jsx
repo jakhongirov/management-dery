@@ -7,9 +7,9 @@ import QrCodeScanner from "./Pages/Scanner/Scanner";
 import "./Hooks/useToken";
 
 function App() {
-  const [token] = useToken();
+  const [token] = useToken(true);
 
-  if (token) {
+  // if (token) {
     return (
       <Routes>
         <Route path="/*" element={<Admin />} />
@@ -17,9 +17,9 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Routes>
     );
-  } else {
-    return <Login />;
-  }
+  // } else {
+  //   return <Login />;
+  // }
 }
 
 export default App;

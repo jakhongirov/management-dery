@@ -1,0 +1,70 @@
+.scanner__container {
+   width: 100% !important;
+   max-width: 500px !important;
+   margin: 0 auto !important;
+   padding: 10px !important;
+}
+
+.scanner__heading {
+   display: block;
+   margin: 0;
+   margin-bottom: 30px;
+   font-size: 24px;
+   text-align: center;
+}
+
+.select_label {
+   display: block;
+   margin-bottom: 5px;
+}
+
+.select {
+   display: block;
+   width: 100%;
+   // max-width: 300px;
+}
+
+.input_label {
+   display: block;
+   margin-bottom: 5px;
+}
+
+.scanner_input {
+   display: block;
+   width: 100%;
+   // max-width: 300px;
+   margin-bottom: 20px;
+   padding: 10px;
+   font-size: 18px;
+   border-radius: 5px;
+}
+
+.scanner_label {
+   display: block;
+   margin-bottom: 5px;
+}
+
+#qr-reader {
+   display: block;
+   width: 100% !important;
+   margin-bottom: 20px;
+}
+
+#html5-qrcode-button-camera-permission {
+   display: block;
+   margin: 0 auto;
+   margin-bottom: 10px;
+   padding: 5px;
+}
+
+.scanner_btn {
+   display: block;
+   width: 80%;
+   margin: 0 auto;
+   padding: 15px;
+   border-radius: 10px;
+   color: #fff;
+   font-size: 16px;
+   border: none;
+   background: rgb(58, 133, 231);
+}
