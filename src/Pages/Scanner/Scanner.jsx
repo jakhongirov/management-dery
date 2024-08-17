@@ -1,22 +1,28 @@
-import './Scanner.scss'
-import React, { useState, useEffect } from 'react';
+import './Scanner.scss';
+import React, { useEffect, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
+import http from '../../axios.config';
+import useToken from '../../Hooks/useToken';
 
 const QrCodeScannerForm = () => {
 	const [result, setResult] = useState('');
-	const [error, setError] = useState('');
 	const [formData, setFormData] = useState({
 		selectValue: '',
 		inputValue: '',
 	});
 
 	useEffect(() => {
-		const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+		const config = {
+			fps: 10,
+			qrbox: { width: 250, height: 250 },
+		};
+
 		const qrCodeSuccessCallback = (decodedText) => {
 			setResult(decodedText);
 		};
+
 		const qrCodeErrorCallback = (errorMessage) => {
-			// No need to set the error state for every frame where no QR code is detected
+			// Handle error if needed
 		};
 
 		const html5QrcodeScanner = new Html5QrcodeScanner(
@@ -24,6 +30,7 @@ const QrCodeScannerForm = () => {
 			config,
 			false,
 		);
+
 		html5QrcodeScanner.render(qrCodeSuccessCallback, qrCodeErrorCallback);
 
 		return () => {
@@ -45,6 +52,27 @@ const QrCodeScannerForm = () => {
 		e.preventDefault();
 		console.log('Form Data:', formData);
 		console.log('Scanned QR Code:', result);
+
+		const requestData = {
+			code: result,
+			type: formData?.selectValue,
+			amount: formData?.inputValue,
+		};
+
+		http
+			.post('cashbek', requestData)
+			.then((response) => {
+				if (response.data.status === 200) {
+					alert('Success');
+					window.location.reload();
+				} else {
+					alert('Something wrong');
+					window.location.reload();
+				}
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	return (
@@ -76,9 +104,10 @@ const QrCodeScannerForm = () => {
 					<label className='scanner_label'>Сканер QR-кода:</label>
 					<div id='qr-reader' style={{ width: '100%' }}></div>
 					{result && <p>Scanned Code: {result}</p>}
-					{error && <p>Error: {error}</p>}
 				</div>
-				<button className='scanner_btn' type='submit'>Отправить</button>
+				<button className='scanner_btn' type='submit'>
+					Отправить
+				</button>
 			</form>
 		</div>
 	);
