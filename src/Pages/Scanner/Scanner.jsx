@@ -65,8 +65,8 @@ const QrCodeScannerForm = () => {
 				if (response.data.status === 200) {
 					alert('Success');
 					window.location.reload();
-				} else {
-					alert('Something wrong');
+				} else if (response.data.status === 400) {
+					alert(response.data.message);
 					window.location.reload();
 				}
 			})
