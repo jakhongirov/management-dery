@@ -73,7 +73,7 @@ function UsersInfo({
               <span>Дата: </span> {formatDate(date)}
             </p>
             <Link to={`/history/${info_id}`}>
-              <button className="history">История заказов</button>
+              <button className="history">История Кашбека</button>
             </Link>
           </div>
         </div>
