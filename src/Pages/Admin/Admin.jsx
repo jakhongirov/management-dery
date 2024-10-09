@@ -10,6 +10,7 @@ import Reviews from "../Reviews/Reviews";
 import Cashback from "../Cashback/Cashback";
 import Orders from "../Orders/Orders";
 import History from "../History/History"; // Не забудьте правильно импортировать History
+import Relationship from "../Relationship/Relationship";
 
 function Admin() {
   return (
@@ -20,6 +21,7 @@ function Admin() {
       <div>
         <Routes>
           <Route path="/" element={<Users />} />
+          <Route path="/relationship" element={<Relationship />} />
           <Route path="/news" element={<News />} />
           <Route path="/products" element={<Products />} />
           <Route path="/categories" element={<Categories />} />
